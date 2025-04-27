@@ -1,5 +1,4 @@
 const puppeteer = require('puppeteer-extra')
-
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 puppeteer.use(StealthPlugin())
 
@@ -20,34 +19,19 @@ async function run(){
         document.querySelector(selector).submit();
     }, selector)
 
-    // const pageNew = await browser.newPage();
-    // await pageNew.goto(page)
-
-    // second step done now i have done with the login button 
-    // now i have to deal with the timings
-    // how to deal with timings?
-
-    // usernname filled and minimum length for the 10 characters
-    // password filled and minimum length for the 10 chgaracters
-    // after 2 seconds it will press login 
-
+    // i have made the first function that will submit the form 
     await page.waitForNavigation();
 
-    let username = await page.$eval("input[id='username']", el => el.value);
-    let password = await page.$eval("input[id='password']", el => el.value);
+    // now the second will fill in my login page form and also fill in the captcha for the box and click the login button
 
-    if((username.trim() !== "" && password.trim() === "") || username.trim()==="" && password.trim() !==""){
-        console.log("either both username and password should be filled or both should be empty")
-        await browser.close();
-        return;
-    }
+    // step1: fill in the information for the username
 
-    // if to maintain 10 character
-    if(username.trim().length < 10 ||password.trim().length <10){
-        console.log("username and passowrd is not right")
-        await browser.close();
-        return;
-    }
+    selector = "input[id='username']"
+    await page.waitForSelector(selector);
+    await page.type(selector, "VIBHUAIR204")
+
+    selector = "input[id='password']"
+    await page.type(selector, "Gulabsadan204")
     
     let select = "button[id='submitBtn']"
 
