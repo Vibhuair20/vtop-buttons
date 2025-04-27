@@ -1,0 +1,18 @@
+{
+  "name": "vtop-login-button",
+  "version": "1.0.0",
+  "description": "button to automate vtop login button",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^24.7.2",
+    "puppeteer-core": "^24.7.2",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin": "^3.2.3",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}
